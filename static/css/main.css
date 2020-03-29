@@ -1,0 +1,137 @@
+/* reset stuff */
+
+
+* {
+  box-sizing: border-box;
+}
+
+.featurette-divider {
+  margin: 50px 50px; /* Space out the Bootstrap <hr> more */
+  border-width: 2.5px;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+/*  margin-left: 8.25rem;
+  margin-right: 10rem;*/
+}
+
+h2, a {
+  color: black;
+  text-decoration: underline;
+}
+
+.logo {
+  padding-top: 150px;
+  padding-bottom: 200px;
+}
+
+.dem {
+  color:#5B70A3;
+}
+
+.rep {
+  color:#CF5656;
+}
+
+.logo h1 {
+  -webkit-animation: rubberBand 90s;
+}
+
+@-webkit-keyframes rubberBand {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(2.5, 1, 1);
+    transform: scale3d(2.5, 1, 1);
+  }
+}
+
+#logo_title {
+  /*font-family: 'IBM Plex Mono', monospace;*/
+  text-align: center;
+  font-size: 65px;
+  padding-bottom: 3rem;
+}
+
+
+.intro {
+  /*font-family: 'IBM Plex Mono', monospace;*/
+  padding-top: 5rem;
+  padding-left: 8.25rem;
+  padding-right: 10rem;
+}
+
+
+.hed {
+  /*font-family: 'IBM Plex Mono', monospace;*/
+  text-align: center;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/*
+.library {
+  padding: 1rem 0;
+  margin: 2rem auto;
+  max-width: 68rem;
+}*/
+
+/*.library__text {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.library__hed {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.library__review {
+}
+
+.library__demo {
+  text-transform: uppercase;
+}
+
+.library__code {
+  font-size: 0.85rem;
+  height: 20vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.library__code.is-expand {
+  height: auto;
+}
+
+.library__code:after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(39, 40, 34, 1) 80%
+  );
+}*/

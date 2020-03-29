@@ -1,0 +1,88 @@
+/* GRAPHIC CODE */
+
+#member .library {
+  padding: 1rem 0;
+  margin: 2rem auto;
+  max-width: 100rem;
+}
+
+#member .library__hed {
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+#member .graphic {
+  width: 100%;
+  position: relative;
+}
+
+#member .graphic__prose {
+  padding-top: 25rem;
+/*  padding-bottom: 5rem;
+*/  width: 52rem;
+  margin-right: 35rem;
+}
+
+
+#member .graphic__prose .trigger {
+  padding-top: 10rem;
+  padding-bottom: 80rem;
+  margin: 0;
+  min-height: 400px;
+  
+}
+
+#member .graphic__vis {
+  position: absolute;
+  top: 0;
+  margin-left: 52rem;
+  -webkit-transform: translate3d(0, 0, 0);
+  /*-moz-transform: translate3d(0, 0, 0);*/
+  transform: translate3d(0, 0, 0);
+  height: 100vh;
+}
+
+#member .graphic__vis.is-fixed {
+  position: fixed;
+}
+
+#member .graphic__vis.is-bottom {
+  top: auto;
+  bottom: 0;
+}
+
+#member .graphic__vis svg {
+  /*border: 1px dashed black;*/
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  /*-moz-transform: translateY(-50%);*/
+  transform: translateY(-50%);
+
+}
+
+#member .item circle {
+  stroke: #666;
+  stroke-width: 1px;
+  fill: #fff;
+}
+
+#member .item text {
+  fill: #666;
+  font-size: 12px;
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+
+
+
+/* graph-scroll.js version */
+#member .graphic__vis.graph-scroll-fixed {
+  position: fixed;
+  right: auto;
+}
+
+#member .graphic__vis.graph-scroll-below {
+  top: auto;
+  bottom: 0;
+}
