@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The | Divide</title>
+
+  
+  <!-- CSS LIBRARIES -->
+
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- CSS MAIN-->
+  <link rel="stylesheet" href="../static/css/sub.css" type="text/css"></link>
+  <!-- <link rel="stylesheet" href="../static/css/graphic_vis.css" type="text/css"></link> -->
+
+  <!-- CSS SUBJECTS -->
+  <link rel="stylesheet" href="../static/css/member_graphic.css" type="text/css"></link>
+
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://127.0.0.1:5000/">Overview<span class="sr-only">(current)</span></a></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="http://127.0.0.1:5000/topic-divide/">Topics</a></li>
+        <li><a href="http://127.0.0.1:5000/member-drift/">Members</a></li>
+        <li><a href="http://127.0.0.1:5000/urban-rural-divide/">Urban vs Rural</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <header class="logo">
+  <!-- <h1 id="logo_title">THE<span class='dem'>|</span><span class='rep'>|</span>DIVIDE</h1> -->
+  <h2 class="hed">Congressional Members Ideological Drift</h2>
+  </header>
+
+  <hr class="featurette-divider">
+
+
+   <div class="container intro">
+    <h2>Introduction</h2>
+    <p style = "padding-bottom: 5rem;">This project aims to present the findings of research in political polarization in the United State Congress. The project will provide an easy source for those with a casual interest to consume the data along with some key research findings. Additionally, researchers looking to explore patterns in polarization may find utility in this tool to possibly identify patterns that may help them generate new research hypotheses in the areas of history and political science.
+    </p>
+    <h2>Data</h2>
+    <p>
+    Our data are every congressional roll call vote in American history on a map of the United States and on a liberal-conservative ideological map including information about the ideological positions of voting Senators and Representatives.  The bipolar ideological scoring system was originally developed by Keith T. Poole and Howard Rosenthal at Carnegie-Mellon University. Metadata on each congressperson is also provided including party affiliation, district, state, as well as other attributes that may be of interest to the project. The data are publicly available and free to download <a href="https://voteview.com" id='voteview'>here</a>.
+    </p>
+  </div>
+
+  <hr class="featurette-divider">
+
+
+
+  <!-- Urban-Rural Divide //// Reese -->
+  <div class ='container' id='member'>
+    <div class="library">
+        <h2 class="library__hed"><a target="_blank">Members Drift</a></h2>
+        <p class = 'explainer'>Placeholder for text</p>
+        <div class="library__graphic graphic scrollStory scrollStoryActiveItem-story0-0">
+          <div class="graphic__prose">
+            <p class="trigger scrollStoryItem inviewport" data-step="0" style="height: 344.5px;" id="story0-0">Step 1 in the graphic. It triggers in the middle of the viewport. For this graphic, it is the same as the initial state so the reader doesn’t miss anything.</p>
+            <p class="trigger scrollStoryItem" data-step="1" style="height: 344.5px;" id="story0-1">Step 2 the graphic should be locking into a fixed position now.</p>
+            <p class="trigger scrollStoryItem" data-step="2" style="height: 344.5px;" id="story0-2">Step 3 the squares should move apart and change color.</p>
+            <p class="trigger scrollStoryItem" data-step="3" style="height: 344.5px;" id="story0-3">Step 3 the squares dissapear concluding the this part of the scrolly. The graphic should now go back to its original in-flow position, snapping back into place.</p>
+          </div>
+          <div class="graphic__vis">
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <hr class="featurette-divider">
+
+  <!-- LIBRAIRIES -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- LIBRAIRIES LOCAL-->
+  <script src="../static/js/jquery.scrollstory.min.js" type="text/javascript"></script>
+    
+
+  <!-- JAVASCRIPT -->
+  <script src="../static/js/instant_scolly.js" type="text/javascript"></script>
+  <script src="../static/js/memberScrolly.js" type="text/javascript"></script>
+
+    
+
+
+</body>
+</html>
