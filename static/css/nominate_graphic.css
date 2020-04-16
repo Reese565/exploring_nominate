@@ -1,0 +1,109 @@
+/* GRAPHIC CODE */
+
+#nominate .library {
+  padding: 1rem 0;
+  margin: 2rem auto;
+  max-width: 100rem;
+}
+
+#nominate .library__hed {
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+#nominate .graphic {
+  width: 100%;
+  position: relative;
+}
+
+#nominate .graphic__prose {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  width: 52rem;
+  margin-right: 35rem;
+}
+
+
+#nominate .graphic__prose .trigger.body {
+  padding-top: 10rem;
+  padding-bottom: 80rem;
+  margin: 0;
+  min-height: 400px;
+  
+}
+
+#nominate .graphic__prose .trigger.last {
+  padding-top: 25rem;
+  padding-bottom: 40rem;
+  margin: 0;
+  min-height: 400px;
+  
+}
+
+#nominate .graphic__prose .trigger.top{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  max-height: 5px;
+}
+
+#nominate .graphic__prose .trigger.bottom{
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 0;
+  max-height: 10px;
+}
+
+#nominate .graphic__vis {
+  position: absolute;
+  top: 0;
+  margin-left: 52rem;
+  -webkit-transform: translate3d(0, 0, 0);
+  /*-moz-transform: translate3d(0, 0, 0);*/
+  transform: translate3d(0, 0, 0);
+  height: 100vh;
+}
+
+#nominate .graphic__vis.is-fixed {
+  position: fixed;
+}
+
+#nominate .graphic__vis.is-bottom {
+  top: auto;
+  bottom: 0;
+}
+
+#nominate .graphic__vis svg {
+  /*border: 1px dashed black;*/
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+#nominate .item circle {
+  stroke: #666;
+  stroke-width: 1px;
+  fill: #fff;
+}
+
+#nominate .item text {
+  fill: #666;
+  font-size: 12px;
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+
+
+
+/* graph-scroll.js version */
+#nominate .graphic__vis.graph-scroll-fixed {
+  position: fixed;
+  right: auto;
+}
+
+#nominate .graphic__vis.graph-scroll-below {
+  top: auto;
+  bottom: 0;
+}

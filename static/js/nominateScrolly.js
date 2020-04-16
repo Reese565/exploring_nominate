@@ -19,11 +19,13 @@ d3.json("/getNom",
     var graphicVisEl = graphicEl.select(graphicSelector.concat('__vis'))
     var graphicProseEl = graphicVisEl.select(graphicSelector.concat('__prose'))
 
-    var margin = 20
-    var size = 29*20
-    var chartSize = size - margin * 2
-    var scaleX = null
-    var nomScale = null;
+    var margin = 7
+    var width = 400
+    var height = 350
+    var chartWidth = width - margin * 2
+    var chartHeight = height - margin * 2
+    var scaleY = null
+    var nomScale = null
     var scaleR = null
     var scaleDist = null
     var extent = d3.extent(data)
@@ -39,17 +41,14 @@ d3.json("/getNom",
             
 
         var item = graphicVisEl.selectAll('.item')
-        
-        item.transition(t)
-          .attr('transform', translate(chartSize / 2, chartSize / 2))
 
         item.select('circle')
           .transition(t)
-          .attr('r', 20)
+          .attr('r', 0)
           .attr('cx', function(d){
-          return d.pos*150
+          return nomScale(d.pos)
         })
-          .attr('cy',-50)
+          .attr('cy',scaleY(1))
 
         item.select('text')
           .transition(t)
@@ -64,14 +63,33 @@ d3.json("/getNom",
         // circles are positioned
         var item = graphicVisEl.selectAll('.item')
 
+        item.select('circle')
+          .transition(t)
+          .attr('r', 15)
+
         item.select('text')
           .transition(t)
-          .delay(function(d, i) { return i})
-          .style('opacity', 1)
+          .style('opacity', 0)
+          .style('font-size', 40)
       },
+
       function step2() {
         var t = d3.transition()
-          .duration(100)
+          .duration(800)
+          .ease(d3.easeQuadInOut)
+        
+        // circles are positioned
+        var item = graphicVisEl.selectAll('.item')
+
+        item.select('text')
+          .transition(t)
+          .style('opacity', 1)
+          .style('font-size', 25)
+      },
+
+      function step3() {
+        var t = d3.transition()
+          .duration(800)
           .ease(d3.easeQuadInOut)
 
         // circles are sized
@@ -79,15 +97,18 @@ d3.json("/getNom",
 
         item.select('text')
           .transition(t)
-          .delay(function(d, i) { return i})
+          // .delay(function(d, i) { return i})
           .style('opacity', function(d,i) {
             if (((i%6 == 0)|| (i%6 == 2)) && (d.pos !== -1)) return 1
-            else return .5
+            else return .5})
+          .style('font-size', function(d,i) {
+            if (((i%6 == 0)|| (i%6 == 2)) && (d.pos !== -1)) return 35
+            else return 15
           })
       },
-      function step3() {
+      function step4() {
         var t = d3.transition()
-          .duration(100)
+          .duration(800)
           .ease(d3.easeQuadInOut)
 
         // circles are sized
@@ -100,11 +121,15 @@ d3.json("/getNom",
             if (((i%6 == 1)|| (i%6 == 3)) && (d.pos !== 1)) return 1
             else return .5
           })
+          .style('font-size', function(d,i) {
+            if (((i%6 == 1)|| (i%6 == 3)) && (d.pos !== 1)) return 35
+            else return 15
+          })
 
       },
-      function step4() {
+      function step5() {
         var t = d3.transition()
-          .duration(100)
+          .duration(800)
           .ease(d3.easeQuadInOut)
 
         // select elements
@@ -118,6 +143,10 @@ d3.json("/getNom",
             if ((i%6 == 4)|| (i%6 == 5)) return 1
             else return .5
           })
+          .style('font-size', function(d,i) {
+            if ((i%6 == 4)|| (i%6 == 5)) return 35
+            else return 15
+          })
 
         axis.transition(t)
             .style('stroke-opacity',0)
@@ -127,9 +156,9 @@ d3.json("/getNom",
             .style('opacity',0)
 
       },
-      function step5() {
+      function step6() {
         var t = d3.transition()
-          .duration(100)
+          .duration(800)
           .ease(d3.easeQuadInOut)
 
         // circles are sized
@@ -138,11 +167,11 @@ d3.json("/getNom",
 
         item.select('circle')
           .transition(t)
-          .attr('r', 20)
+          .attr('r', 15)
           .attr('cx', function(d){
-          return d.pos*150
+          return nomScale(d.pos)
         })
-          .attr('cy',-50)
+          .attr('cy',scaleY(1))
 
         item.select('text')
             .transition(t)
@@ -155,24 +184,73 @@ d3.json("/getNom",
         axis.selectAll('.tick')
             .transition(t)
             .style('opacity',1)
-        
 
       },
-      function step6() {
+
+      function step7() {
         var t = d3.transition()
-          .duration(200)
+          .duration(800)
           .ease(d3.easeQuadInOut)
 
         // circles are sized
         var item = graphicVisEl.selectAll('.item')
+        // debugger;
+        item.select('circle')
+        .transition(t)
+        .attr('r', 5)
+        .attr('cx', function(d){return nomScale(d.nom)})
+        .attr('cy', function(d){return scaleY(5)})
+      },
+
+      function step8() {
+        var t = d3.transition()
+          .duration(800)
+          .ease(d3.easeQuadInOut)
+
+        // circles are sized
+        var item = graphicVisEl.selectAll('.item')
+        var axis = graphicVisEl.selectAll('.x.axis')
 
         item.select('circle')
         .transition(t)
-        .attr('cx', function(d){return nomScale(d.nom)})
+        .attr('r', 5)
+        .attr('cx', function(d){ 
+          if (Math.random() > 0.5) return nomScale(d.nom - Math.random()/2)
+            else return nomScale(d.nom + Math.random()/2)})
+        .attr('cy', function(d){return scaleY(5)});
 
-        
+        axis.transition(t)
+            .style('stroke-opacity', 1);
+
+        axis.selectAll('.tick')
+            .transition(t)
+            .style('opacity',1);
 
       },
+      function step9() {
+        var t = d3.transition()
+          .duration(800)
+          .ease(d3.easeQuadInOut)
+
+        var item = graphicVisEl.selectAll('.item');
+        var axis = graphicVisEl.selectAll('.x.axis');
+
+        item.select('circle')
+          .transition(t)
+          .attr('r', 0)
+          .attr('cx', function(d){
+          return nomScale(d.pos)
+        })
+          .attr('cy',scaleY(1));
+
+        axis.transition(t)
+            .style('stroke-opacity', 0);
+
+        axis.selectAll('.tick')
+            .transition(t)
+            .style('opacity',0);
+      },
+
     ]
 
     // update our chart
@@ -187,61 +265,40 @@ d3.json("/getNom",
 
     function setupCharts() {
       var svg = graphicVisEl.append('svg')
-        .attr('width', size + 'px')
-        .attr('height', size + 'px')
+        .attr('width', width + 'px')
+        .attr('height', height + 'px')
       
       var chart = svg.append('g')
         .classed('chart', true)
-        .attr('transform', 'translate(' + margin + ',' + margin + ')')
-
-      // scaleR = d3.scaleLinear()
-      // scaleY = d3.scaleBand()
-      // scaleX = d3.scaleBand()
+        // .attr('transform', 'translate(' + margin + ',' + margin + ')')
 
 
-      // var color_steps = 4
-      // scaleDist = d3.scaleThreshold()
-      //                   .domain([.25,.5,.75]) //[-.6, -.2, .2, .6]
-      //                   .range(d3.schemeGreys[color_steps]); 
+      nomScale = d3.scaleLinear()
+                     .range([margin*4, chartWidth - margin*2])
+                     .domain([-1,1])
 
+      scaleY = d3.scaleLinear()
+                 .range([margin, chartHeight])
+                 .domain([0,10])
 
-    
-    
-      // scaleDist = d3.scaleSequential(d3.interpolateYlGnBu)
-    //                .domain([0, 1]);
+      
 
-      // var domainX = d3.range(29)
-      // var domainY = d3.range(29)
-
-      // scaleX
-      //   .domain(domainX)
-      //   .range([0, chartSize])
-      //   .padding(1)
-
-      // scaleY
-      //   .domain(domainY)
-      //   .range([chartSize, 0])
-      //   .padding(1) 
-
-      // scaleR
-      //   .domain(extent)
-      //   .range([minR, maxR])
 
       var item = chart.selectAll('.item')
         .data(data)
         .enter().append('g')
           .classed('item', true)
-          .attr('transform', translate(chartSize / 2, chartSize / 2))
+          // .attr('transform', translate(chartSize / 2, chartSize / 2))
       
       item.append('circle')
         .attr('cx', function(d){
-          return d.pos*150
+          return nomScale(d.pos)
         })
-        .attr('cy', -50)
-        .attr('r', 20)
+        .attr('cy', scaleY(1))
+        .attr('r', 0)
         .style('fill', function(d){
-            if (d.nom > 0) return 'red'
-            else return 'blue'
+            if (d.nom > 0) return '#CF5656'
+            else return '#5B70A3'
           })
 
       item
@@ -249,24 +306,20 @@ d3.json("/getNom",
         .text(function(d) {
           return d.vote})
         .attr('x', function(d){
-          return d.pos*150
+          return nomScale(d.pos)
         })
         .attr('y', function(d,i){
-          return (i%6)*25
+          return scaleY(i%6 + 2.25)
         })
-        .style('font-size', 25)
+        .style('font-size', 40)
         .style('opacity', 0)
 
 
-      nomScale = d3.scaleLinear()
-                     .range([margin*4, size - margin*4])
-                     .domain([-1,1])
-
-      let nomAxis = d3.axisBottom(nomScale)
+      let nomAxis = d3.axisBottom(nomScale).ticks(7)
 
       chart.append("g")
-         .attr('class','x axis')
-         .attr("transform", "translate(0,300)")
+         .attr('class','item x axis')
+         .attr("transform", "translate(0," + scaleY(5) + ")")
          .style('stroke-opacity',0)
          .call(nomAxis);
 
