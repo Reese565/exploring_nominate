@@ -17,6 +17,8 @@ DATA_PATH = './data/'
 VOTEVIEW_URL = "https://voteview.com/static/data/out/members/HSall_members.csv"
 PARTY_LIST = [100,200] # 100 = Democrat, 200 = Republican
 COLS = ['year','congress','party_code','chamber','icpsr','nominate_dim1']
+CHAMBERS = ['House','Senate']
+YEAR = 1950
     
 
 def voteviewData():
@@ -50,19 +52,49 @@ def add_year(vv):
     return vvy
 
 
-def filter_party(vvy,party_list):
+def filter_party(vv,party_list):
     """Filters the data by party"""
     
-    vvyp = vvy[vvy['party_code'].isin(party_list)]
+    vvp = vv[vv['party_code'].isin(party_list)]
     
-    return vvyp
+    return vvp
+
+def filter_chamber(vv,chambers):
+    """Filters the data by party"""
+    
+    vvp = vv[vv['chamber'].isin(chambers)]
+    
+    return vvp
 
 
-def select_cols(vvyp,cols):
+def filter_cols(vv,cols):
     """Selects the desired columns"""
-    vvypf = vvyp.loc[:,cols]
+    vvf = vv.loc[:,cols]
     
-    return vvypf
+    return vvf
+
+def filter_year(vv, year):
+    """Filters by year"""
+    
+    vvy = vv[vv['year'] >= year]
+    
+    return vvy
+
+def drop_missing(vv,col):
+    """Selects the desired columns"""
+    vvf = vv[~vv[col].isnull()]
+    
+    return vvf
+
+def add_party_mean(vv):
+    """Adds the party mean nominate score for each year to the datafram"""
+    
+    party_mu = vv.groupby(['year','party_code'], as_index = False).agg({'nominate_dim1':np.mean})
+    party_mu.rename({'nominate_dim1':'party_mu'}, axis = 1, inplace = True)
+
+    vvm = vv.merge(party_mu, how = 'inner', on = ['year','party_code'])
+    
+    return vvm
 
 
 def fetch_overview_data(p = 0.25):
@@ -75,12 +107,17 @@ def fetch_overview_data(p = 0.25):
     """
     
     vv = voteviewData()
-    vvy = add_year(vv)
-    vvyp = filter_party(vvy,PARTY_LIST)
-    vvypf = select_cols(vvyp,COLS)
+    vv = add_year(vv)
+    vv = filter_party(vv,PARTY_LIST)
+    vv = filter_chamber(vv,CHAMBERS)
+    vv = filter_cols(vv,COLS)
+    vv = filter_year(vv, YEAR)
+    vv = drop_missing(vv,'nominate_dim1')
+    vv = add_party_mean(vv)
+    
     
     # group by year to sample
-    vv_session_grp = vvypf.groupby('year')
+    vv_session_grp = vv.groupby('year')
     
     dfs = []
     for g in vv_session_grp.groups.keys():
@@ -89,10 +126,20 @@ def fetch_overview_data(p = 0.25):
         samp_df = df.sample(samp_size)
         dfs.append(samp_df)
 
-    vvyps = pd.concat(dfs, axis=0, ignore_index = True)
-    vvyps_json = vvyps.to_json(orient = 'records')
+    vvs = pd.concat(dfs, axis=0, ignore_index = True)
+    vvs_json = vvs.to_json(orient = 'records')
     
-    return vvyps_json
+    return vvs_json
+
+
+
+
+
+
+
+
+
+
 
 
 

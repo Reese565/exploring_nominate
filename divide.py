@@ -7,7 +7,7 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++#
 #                                                   #
 # code to run flask app from terminal:              #
-#         'env FLASK_APP=flask-app.py flask run'    #
+#         'env FLASK_APP= < APP_FILE > flask run'   #
 #                                                   #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++#
 
@@ -25,7 +25,7 @@ from example_data import nominateExample, fakeDistirctDist
 from flask import Flask, render_template
 
 
-#// APP DEPENDENCIES //#
+#// DATA DEPENDENCIES //#
 
 # nominate example date for main page
 nominate_example = nominateExample()
@@ -65,20 +65,17 @@ def topicPath():
 
 #// DATA PATHS
 
-@app.route('/getData')
-def getData():
-    # return data.to_json(orient="records")
-    return district_dist
-
 @app.route('/getNom')
 def getNom():
-    # return data.to_json(orient="records")
     return nominate_example
 
 @app.route('/getOv')
 def getOv():
-    # return data.to_json(orient="records")
     return ovData
+
+@app.route('/getData')
+def getData():
+    return district_dist
 
 
 #===============* Saved Code *===============#
