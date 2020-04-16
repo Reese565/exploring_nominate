@@ -1,0 +1,52 @@
+
+.overviewSVG {
+  display: block;
+  margin:auto;
+}
+
+#overviewChart text.chart {
+  font-family: sans-serif;
+  font-size: 10px;
+  fill: #434242;
+  stroke-width: 0.5;
+}
+
+#overviewChart .line {
+  fill: none;
+  stroke-width: 3.5;
+}
+
+#overviewChart .grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+#overviewChart .grid path {
+  stroke-width: 0;
+}
+
+#overviewChart .axLab {
+  font-family: sans-serif;
+  font-size: 14px;
+  /*text-anchor: middle;*/
+}
+
+#overviewChart .title {
+  font-family: sans-serif;
+  font-size: 15px;
+  /*text-anchor: middle;*/
+}
+
+#overviewChart .comment {
+  font-family: sans-serif;
+  font-size: 9px;
+  fill: firebrick;
+}
+
+
+#overviewChart .attention {
+  background: yellow;
+  margin: -4px;
+  padding: 4px;
+}
