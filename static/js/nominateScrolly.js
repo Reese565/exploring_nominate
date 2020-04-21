@@ -224,8 +224,11 @@ d3.json("/getNom",
           .duration(800)
           .ease(d3.easeQuadInOut)
 
-        var item = graphicVisEl.selectAll('.item');
         var axis = graphicVisEl.selectAll('.x.axis');
+
+        item.select('text')
+          .transition(t)
+          .style('font-size', '25px');
 
         item.select('circle')
           .transition(t)
@@ -235,6 +238,8 @@ d3.json("/getNom",
         })
           .attr('cy',scaleY(1));
 
+        var item = graphicVisEl.selectAll('.item');
+
         axis.transition(t)
             .style('stroke-opacity', 0);
 
@@ -242,9 +247,7 @@ d3.json("/getNom",
             .transition(t)
             .style('opacity',0);
 
-        item.select('text')
-          .transition(t)
-          .style('font-size', '25px');
+        
       },
 
     ]
