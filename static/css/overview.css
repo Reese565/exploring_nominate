@@ -1,7 +1,25 @@
 
+#info {
+  width:30%;
+  display:inline-block;
+  padding-left: 10rem;
+/*  padding-top: 0.5rem;*/
+}
+
 .overviewSVG {
   display: block;
   margin:auto;
+}
+
+#overviewChart {
+  width:60%;
+  float:left;
+}
+
+.zero {
+  stroke:black;
+  stroke-dasharray: 10px;
+  shape-rendering: crispEdges;
 }
 
 #overviewChart text.chart {
@@ -18,13 +36,11 @@
 
 #overviewChart .grid line {
   stroke: lightgrey;
-  stroke-opacity: 0.7;
+  stroke-opacity: 1;
   shape-rendering: crispEdges;
+  stroke-width: 1;
 }
 
-#overviewChart .grid path {
-  stroke-width: 0;
-}
 
 #overviewChart .axLab {
   font-family: sans-serif;
@@ -50,3 +66,14 @@
   margin: -4px;
   padding: 4px;
 }
+
+
+.markers {
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+
+
+
