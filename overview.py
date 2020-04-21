@@ -20,6 +20,7 @@ COLS = ['year','congress','party_code','chamber','icpsr','nominate_dim1']
 CHAMBERS = ['House','Senate']
 YEAR = 1950
     
+    
 
 def voteviewData():
     
@@ -67,6 +68,14 @@ def filter_chamber(vv,chambers):
     return vvp
 
 
+def filter_state(vv, state = None):
+    """Filters by year"""
+    if state!=None:
+        vvy = vv[vv['state_abbrev'] == state]
+        return vvy
+    else:
+        return vv
+
 def filter_cols(vv,cols):
     """Selects the desired columns"""
     vvf = vv.loc[:,cols]
@@ -97,7 +106,7 @@ def add_party_mean(vv):
     return vvm
 
 
-def fetch_overview_data(p = 0.25):
+def fetch_overview_data(state = None,p = 0.25):
     """
     Fetches, filters, and cleans Voteview 
     NOMINATE data and returns as JSON string
@@ -105,11 +114,15 @@ def fetch_overview_data(p = 0.25):
     Args
      - p: sample proportion
     """
+
+    if state != None:
+        p = 1.0
     
     vv = voteviewData()
     vv = add_year(vv)
     vv = filter_party(vv,PARTY_LIST)
     vv = filter_chamber(vv,CHAMBERS)
+    vv = filter_state(vv, state)
     vv = filter_cols(vv,COLS)
     vv = filter_year(vv, YEAR)
     vv = drop_missing(vv,'nominate_dim1')
@@ -130,6 +143,7 @@ def fetch_overview_data(p = 0.25):
     vvs_json = vvs.to_json(orient = 'records')
     
     return vvs_json
+
 
 
 

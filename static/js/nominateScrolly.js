@@ -70,7 +70,7 @@ d3.json("/getNom",
         item.select('text')
           .transition(t)
           .style('opacity', 0)
-          .style('font-size', 40)
+          .style('font-size', '40px')
       },
 
       function step2() {
@@ -84,7 +84,7 @@ d3.json("/getNom",
         item.select('text')
           .transition(t)
           .style('opacity', 1)
-          .style('font-size', 25)
+          .style('font-size', '25px');
       },
 
       function step3() {
@@ -97,14 +97,12 @@ d3.json("/getNom",
 
         item.select('text')
           .transition(t)
-          // .delay(function(d, i) { return i})
           .style('opacity', function(d,i) {
             if (((i%6 == 0)|| (i%6 == 2)) && (d.pos !== -1)) return 1
-            else return .5})
+            else return .5;})
           .style('font-size', function(d,i) {
-            if (((i%6 == 0)|| (i%6 == 2)) && (d.pos !== -1)) return 35
-            else return 15
-          })
+            if (((i%6 == 0)|| (i%6 == 2)) && (d.pos !== -1)) return '30px'
+            else return '20px';});
       },
       function step4() {
         var t = d3.transition()
@@ -116,15 +114,12 @@ d3.json("/getNom",
 
         item.select('text')
         .transition(t)
-          .delay(function(d, i) { return i})
           .style('opacity', function(d,i) {
             if (((i%6 == 1)|| (i%6 == 3)) && (d.pos !== 1)) return 1
-            else return .5
-          })
+            else return .5;})
           .style('font-size', function(d,i) {
-            if (((i%6 == 1)|| (i%6 == 3)) && (d.pos !== 1)) return 35
-            else return 15
-          })
+            if (((i%6 == 1)|| (i%6 == 3)) && (d.pos !== 1)) return '30px'
+            else return '20px';});
 
       },
       function step5() {
@@ -138,15 +133,12 @@ d3.json("/getNom",
 
         item.select('text')
         .transition(t)
-          .delay(function(d, i) { return i})
           .style('opacity', function(d,i) {
             if ((i%6 == 4)|| (i%6 == 5)) return 1
-            else return .5
-          })
+            else return .5})
           .style('font-size', function(d,i) {
-            if ((i%6 == 4)|| (i%6 == 5)) return 35
-            else return 15
-          })
+            if ((i%6 == 4)|| (i%6 == 5)) return '30px'
+            else return '20px';});
 
         axis.transition(t)
             .style('stroke-opacity',0)
@@ -199,7 +191,7 @@ d3.json("/getNom",
         .transition(t)
         .attr('r', 5)
         .attr('cx', function(d){return nomScale(d.nom)})
-        .attr('cy', function(d){return scaleY(5)})
+        .attr('cy', function(d){return scaleY(5)});
       },
 
       function step8() {
@@ -232,8 +224,11 @@ d3.json("/getNom",
           .duration(800)
           .ease(d3.easeQuadInOut)
 
-        var item = graphicVisEl.selectAll('.item');
         var axis = graphicVisEl.selectAll('.x.axis');
+
+        item.select('text')
+          .transition(t)
+          .style('font-size', '25px');
 
         item.select('circle')
           .transition(t)
@@ -243,12 +238,16 @@ d3.json("/getNom",
         })
           .attr('cy',scaleY(1));
 
+        var item = graphicVisEl.selectAll('.item');
+
         axis.transition(t)
             .style('stroke-opacity', 0);
 
         axis.selectAll('.tick')
             .transition(t)
             .style('opacity',0);
+
+        
       },
 
     ]

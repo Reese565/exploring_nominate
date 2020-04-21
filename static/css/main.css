@@ -16,18 +16,24 @@ img {
 
 body {
   font-family: 'IBM Plex Mono', monospace;
-/*  margin-left: 8.25rem;
-  margin-right: 10rem;*/
 }
 
-h2, a {
+.para, .dropdown, .info {
+  opacity:0.85;
+}
+
+ a {
   color: black;
   text-decoration: underline;
+}
+
+h2 {
+  color: black;
 }
 
 h4 {
   color: black;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   text-align: center;
 }
 
@@ -68,23 +74,21 @@ h4 {
 }
 
 
-.intro {
-  /*font-family: 'IBM Plex Mono', monospace;*/
+h2.intro {
   padding-top: 5rem;
   padding-left: 8.25rem;
   padding-right: 10rem;
 }
 
 .para {
-  /*font-family: 'IBM Plex Mono', monospace;*/
   padding-top: 1rem;
+  padding-bottom: 5rem;
   padding-left: 8.25rem;
   padding-right: 10rem;
 }
 
 
 .hed {
-  /*font-family: 'IBM Plex Mono', monospace;*/
   text-align: center;
 }
 

@@ -64,8 +64,6 @@ d3.json("/getData",
             return translate(scaleX(d.col), scaleY(d.row))
           })
         
-
-
         item.select('rect')
           .transition(t)
           .attr('width', 15)
@@ -98,7 +96,47 @@ d3.json("/getData",
           })
 
       },
+
       function step3() {
+        var t = d3.transition()
+          .duration(100)
+          .ease(d3.easeQuadInOut)
+
+        // circles are sized
+        var item = graphicVisEl.selectAll('.item')
+
+        item.select('rect')
+          .transition(t)
+          .style('opacity', 1)
+          .delay(function(d, i) {
+            if (d.q <= .25) return 75
+            else if (d.q > .25 && d.q <= .5) return 50
+            else if (d.q > .5 && d.q <= .75) return 25
+            else return 0
+          })
+          .duration(2500)
+          .style('fill', function(d,i) {
+            if (d.q <= .25) return '#9AACD4'
+            else if (d.q > .25 && d.q <= .5) return '#586D9C'
+            else if (d.q > .5 && d.q <= .75) return '#0B1939'
+            else return '#000001'
+          })
+          .attr('class', function(d,i) {
+            if (d.q <= .25) return 'Q1'
+            else if (d.q > .25 && d.q <= .5) return 'Q2'
+            else if (d.q > .5 && d.q <= .75) return 'Q3'
+            else return 'Q4'
+          })
+          .attr('transform', function(d, i) {
+            if (d.q <= .25) return translate('0', '0')
+            else if (d.q > .25 && d.q <= .5) return translate(scaleX(4), '0')
+            else if (d.q > .5 && d.q <= .75) return translate(scaleX(9), '0')
+            else return translate(scaleX(14), '0')
+          })
+
+      },
+      
+      function step4() {
         var t = d3.transition()
           .duration(100)
           .ease(d3.easeQuadInOut)
