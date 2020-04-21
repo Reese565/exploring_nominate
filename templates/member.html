@@ -53,7 +53,7 @@
 
   <header class="logo">
   <!-- <h1 id="logo_title">THE<span class='dem'>|</span><span class='rep'>|</span>DIVIDE</h1> -->
-  <h2 class="hed">Congressional Members Ideological Drift</h2>
+  <h2 class="hed">Congressional Members' Ideological Drift</h2>
   </header>
 
   <hr class="featurette-divider">
@@ -61,21 +61,38 @@
 
    <div class="container intro">
     <h2>Do People Ever Change?</h2>
-    <p style = "padding-bottom: 5rem;">It remains an open question whether congressional members, or individuals more broadly, ever undergo substantial ideological change. Moreover, have congressional members noticeably changed during their times in office? Nokken and Poole created a socioeconomic ideological dimension which assumes that each congress is independent from all others for  the purpose of measuring each member’s ideology. Taking advantage of this, we have developed a tool which allows users to summarize how individual congressional members have evolved ideologically during their times in congress.
+    <p style = "padding-bottom: 5rem;">It remains an open question whether congressional members, or individuals more broadly, ever undergo substantial ideological change. Moreover, have congressional members noticeably changed over the course of their careers in office? Nokken and Poole created a socioeconomic ideological dimension which assumes that each congress is independent from all others for the purpose of measuring each member’s ideology. Taking advantage of this, we have developed a tool which allows users to summarize how individual congressional members have evolved ideologically during their times in congress.
     </p>
-    <h2>The Member Shift Dashboard</h2>   
-    <p>
-    Each streak on the feather plot below represents a single member of congress. A streak begins at the year in which a member first enters congress and shifts right by the number of years they spend in congress, as well as up or down by their estimated ideological change over those years.You may track the ideological shifting of Republicans, Democrats since 1830. Subset the group by party, year of first congress, age in first congress, and years spent in congress. Additionally, you may take a random sample of any subset to reduce visual clutter. Lastly the gray bar on the bottom left is the calculated average magnitude of the ideological change of all the members in the subset. <a href="https://voteview.com" id='voteview'>here</a>.
+
+  
+    <p style = "padding-bottom: 5rem;">Take, as example, the ideological trajectories of Walter Jones (R-NC) and Nancy Pelosi (D-CA). These trajectories provide a window to discover that Jones appeared to have become more liberal during his time in congress, while Nancy become slightly more conservative.
     </p>
+
+
+    <hr class="featurette-divider">
+
+    <!-- Jones and Pelosi //// Rowan -->
+  <div class ='container' id='example'>
+    <div class='tableauPlaceholder' id='viz1587502367111' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;a2&#47;a2_15833806542370&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='a2_15833806542370&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;a2&#47;a2_15833806542370&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587502367111');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
   </div>
 
   <hr class="featurette-divider">
 
 
+    <h2>The Member Shift Dashboard</h2>   
+    <p>
+    The magnitude and direction of ideological trajectories of specific members can be compared using streaks. The streaks for Jones and Pelosi are shown in the dashboard below (the streaks are computed using linear regression). 
+    </p>
+    <p>
+    Each streak on the feather plot below represents a single member of congress. A streak begins at the year in which a member first enters congress. The streak shifts right by the number of years the member spends in congress and shifts up or down by their estimated ideological change over those years. You may track the ideological shifting of any or all Republicans and Democrats since 1830. Use the filters at the right to subset any group of members you examine according to conditions on party, year of first congress, age in first congress, and years spent in congress. Additionally, you may take a random sample to reduce visual clutter and distill insights. Lastly the gray bar on the bottom right is the calculated average ideological change of all the members you are examining. (<a href="https://voteview.com" id='voteview'>Data</a>).
+    </p>
+  </div>
 
-  <!-- Urban-Rural Divide //// Reese -->
+  <hr class="featurette-divider">
+
+  <!-- Member Change //// Rowan -->
   <div class ='container' id='member'>
-   <div class='tableauPlaceholder' id='viz1587060515234' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finalBookcopy&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='finalBookcopy&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finalBookcopy&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587060515234');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+   <div class='tableauPlaceholder' id='viz1587503234501' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finalBookcopy&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='finalBookcopy&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finalBookcopy&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587503234501');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
   </div>
 
 
