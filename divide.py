@@ -33,9 +33,6 @@ nominate_example = nominateExample()
 # fake district distribution data
 district_dist = fakeDistirctDist()
 
-# fetch overview data
-ovData = fetch_overview_data()
-
 
 
 #// FLASK APP //#
@@ -45,37 +42,49 @@ APP_FOLDER = os.path.dirname(os.path.realpath(__file__))
 
 @app.route('/')
 def index():
-    return render_template('main.html')
+  return render_template('main.html')
 
 
 #// PAGE PATHS
 
 @app.route('/urban-rural-divide/')
 def urbanRuralPath():
-    return render_template('urban-rural.html')
+  return render_template('urban-rural.html')
 
 @app.route('/member-drift/')
 def memberPath():
-    return render_template('member.html')
+  return render_template('member.html')
 
 @app.route('/topic-divide/')
 def topicPath():
-    return render_template('topic.html')
+  return render_template('topic.html')
 
 
 #// DATA PATHS
 
 @app.route('/getNom')
 def getNom():
-    return nominate_example
+  return nominate_example
 
-@app.route('/getOv')
-def getOv():
-    return ovData
+@app.route('/getStates')
+def getStates():
+  states = pd.read_csv("https://worldpopulationreview.com/static/states/abbr-name.csv", header = None)
+  states.columns = ['abbrev','state']
+  states = pd.concat([pd.DataFrame({"abbrev":["All"],"state":["All"]}),states], axis = 0).to_json(orient="records")
+  return states
+
+@app.route('/getOv/<state>')
+def getOv(state):
+  
+  if state == "All":
+    state = None
+
+  ovData = fetch_overview_data(state)
+  return ovData
 
 @app.route('/getData')
 def getData():
-    return district_dist
+  return district_dist
 
 
 #===============* Saved Code *===============#
