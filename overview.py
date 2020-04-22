@@ -13,7 +13,7 @@ import json
 import pandas as pd
 import numpy as np
 
-DATA_PATH = './data/'
+DATA_PATH = './static/data/'
 VOTEVIEW_URL = "https://voteview.com/static/data/out/members/HSall_members.csv"
 PARTY_LIST = [100,200] # 100 = Democrat, 200 = Republican
 COLS = ['year','congress','party_code','chamber','icpsr','nominate_dim1']
