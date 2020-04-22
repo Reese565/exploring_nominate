@@ -7,7 +7,7 @@
 */
 
 
-d3.json("/getData",
+d3.json("/getFData",
   function (err, data) {
     console.log("error:",err)
 

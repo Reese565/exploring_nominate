@@ -23,13 +23,12 @@ function timeSeriesChart() {
   function chart(selection) {
     selection.each(function(data) {
       
-      // Update the x-scale.
-      var extent = d3.extent(data, function(d) { return xValue(d); })
+      // Update the x-scale
+      var extent = d3.extent(data, function(d) { return xValue(d); });
 
-      xScale.domain([extent[0] - 1, extent[1] + 1])
+      xScale.domain([extent[0] - 1, extent[1] + 1]);
 
-
-      // Update the y-scale.
+      // Update the y-scale
       yScale.domain(domain);
 
       // Select the svg element, if it exists.
@@ -73,7 +72,7 @@ function timeSeriesChart() {
                      "text":"This is Text for 2008"},
                      {"year":2016,
                       "pres": "Pressi McPres",
-                      "text":"This is Text for 2016"}]
+                      "text":"This is Text for 2016"}];
 
       var clickHistory = function(d,i){
               var year = d.year
@@ -109,14 +108,16 @@ function timeSeriesChart() {
 
       var nested_data = d3.nest()
                           .key(function(d){return d.party_code})
-                          .entries(data)
+                          .entries(data);
+      
 
       // Update the inner dimensions.
       g = svg.merge(svgEnter).select("g")
              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-      gEnter.selectAll('.points').enter()
+      gEnter.selectAll('.points')
+            .enter()
             .data(data)
             .enter()
             .append('circle')
@@ -146,8 +147,6 @@ function timeSeriesChart() {
                 else return '#5B70A3'
             });
 
-
-
       let yAxis = d3.axisLeft(yScale);
       let xAxis = d3.axisBottom(xScale)
         .tickSize(6, 0)
@@ -158,7 +157,7 @@ function timeSeriesChart() {
       g.select(".y.axis")
        .attr("transform", "translate(" + (xScale.range()[0] - 1) + ",0)")
        .style('stroke-opacity',0.30)
-       .call(yAxis)
+       .call(yAxis);
       
       // Update the x-axis.
       g.select(".x.axis")
@@ -167,7 +166,7 @@ function timeSeriesChart() {
        .call(xAxis);
 
       g.selectAll('.tick')
-       .style('opacity',0.65)
+       .style('opacity',0.65);
 
 
       d3.select('.xLab')
@@ -191,10 +190,6 @@ function timeSeriesChart() {
         .attr('y',0)
         .text('Party NOMINATE Scores (1950-2019)')
         .style('opacity',0.5);
-
-
-
-           
     });
   }
 
@@ -253,8 +248,7 @@ function timeSeriesChart() {
     if (!arguments.length) return domain;
     domain = values;
     return chart;
-  }
-
+  };
 
 
   return chart;
