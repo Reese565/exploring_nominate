@@ -66,7 +66,7 @@
     </p>
     <h2 class = "intro">Data</h2>
     <p class = 'para'>
-    Our data are every congressional roll call vote in American history on a map of the United States and on a liberal-conservative ideological map including information about the ideological positions of voting Senators and Representatives.  The bipolar ideological scoring system was originally developed by Keith T. Poole and Howard Rosenthal at Carnegie-Mellon University. Metadata on each congressperson is also provided including party affiliation, district, state, as well as other attributes that may be of interest to the project. The data are publicly available and free to download <a href="https://voteview.com" id='voteview'>here</a>.
+    Our data are every congressional roll call vote in American history mapped onto a bipolar liberal-conservative ideological plane for each Senator and House Representative.  The bipolar ideological scoring system was originally developed by Keith T. Poole and Howard Rosenthal at Carnegie-Mellon University. Metadata on each congressperson is also provided including party affiliation, district, state, as well as other attributes that may be of interest to the project. The data are publicly available and free to download <a href="https://voteview.com" id='voteview'>here</a>.
     </p>
   </div>
 
@@ -77,25 +77,25 @@
   <div class ='container' id="nominate">
       <div class="library">
           <h2 class="library__hed trigger scrollStoryItem inviewport" >Poole & Rosenthal NOMINATE Scores</h2>
-          <p class='desc'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae deserunt reiciendis omnis itaque aliquam cupiditate dicta, illo eligendi illum, quos, eum, dolores voluptas accusamus quaerat tempora voluptatum sed. Distinctio, doloribus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi inventore similique delectus, at, vitae soluta saepe molestiae laboriosam tenetur voluptatem, facere optio. Optio cupiditate culpa explicabo error sunt corporis, officia.</p>
+          <p class='desc'>The ideological positions used in this project are calculted using a procedure developed by Keith T. Poole and Howard Rosenthal in the 1980s. Dubbed as the legislators DW-NOMINATE (Dynamic Weighted NOMINAl Three-step Estimation), or just NOMINATE, these scores represent congressional members on a spatial map laying between -1 (most liberal) and 1 (most conservative), with the value 0 marking the ideological center. Legislators that are more ideologically similar would be "closer together" on this spatial map with their scores having a shorter distance apart relative to other congressional members. The scores are derived using a complex algorithm that uses every vote they cast during their congressional career, using the fact that more legislators whose ideological positions sometines overlap will vote vote more together, while their more ideologically distat peers will vote less frequently with them. We take you through a brief visual example of how this mapping works.</p>
           <div class="library__graphic graphic scrollStory scrollStoryActiveItem-story0-0">
             <div class="graphic__prose">
               <p class="trigger scrollStoryItem top" data-step="0" style="height: 0px;" id="story0-0"></p>
-              <p class="trigger scrollStoryItem inviewport body" data-step="1" style="height: 344.5px;" id="story0-1">Step 1 in the graphic. It triggers in the middle of the viewport. Three circles should appear representing three fictional congress people.</p>
-              <p class="trigger scrollStoryItem body" data-step="2" style="height: 344.5px;" id="story0-2">Step 2 the graphic should be locking into a fixed position now. Fake rollcall votes for each politican should apear.</p>
-              <p class="trigger scrollStoryItem body" data-step="3" style="height: 344.5px;" id="story0-3">Step 3 votes get highlighted to compare who is voting together on some votes.</p>
-              <p class="trigger scrollStoryItem body" data-step="4" style="height: 344.5px;" id="story0-4">Step 4 more votes get highlighted to compare who is voting together on some votes.</p>
-              <p class="trigger scrollStoryItem body" data-step="5" style="height: 344.5px;" id="story0-5">Step 5 the highlighted votes should change to illustrate further voting patterns.</p>
-              <p class="trigger scrollStoryItem body" data-step="6" style="height: 344.5px;" id="story0-6">Step 6 the vote dissapear and a horizontal axis appear representing the space to be mapped.</p>
-              <p class="trigger scrollStoryItem body" data-step="7" style="height: 344.5px;" id="story0-7">Step 7 tcircles drop down to the axis to take on values depending on their voting relationships.</p>
-              <p class="trigger scrollStoryItem last" data-step="8" style="height: 344.5px;" id="story0-8">Step 8 further illustration of how this can be done for the rest of the politicians in Congress.</p>
+              <p class="trigger scrollStoryItem inviewport body" data-step="1" style="height: 344.5px;" id="story0-1">We start the example by imaging three fictional legislators: 2 Republicans and 1 Democrat</p>
+              <p class="trigger scrollStoryItem body" data-step="2" style="height: 344.5px;" id="story0-2">Imagine these legislators take a series of votes during a given session of congress, with a vote of YEA meaning they support the measure or bill, and a vote of NAY meaning the oppose it.</p>
+              <p class="trigger scrollStoryItem body" data-step="3" style="height: 344.5px;" id="story0-3">The two Republicans end up voting together on two votes, signaling their shared beliefs and views.</p>
+              <p class="trigger scrollStoryItem body" data-step="4" style="height: 344.5px;" id="story0-4">But one of the Republicans also votes with Democrats some of the time, while the other Republican does not, suggesting that at least this Republican has some ideological overlap with some views held by his Democratic collegues. This would suggest less ideological distance between these two members.</p>
+              <p class="trigger scrollStoryItem body" data-step="5" style="height: 344.5px;" id="story0-5">We also see that there are times when all three politicians vote together. Votes like these show us that while the Democrat and far right Republican don't vote often together, they still share some overalap. This will be reflected in their NOMINATE Score being less far apart than they might have otherwise.</p>
+              <p class="trigger scrollStoryItem body" data-step="6" style="height: 344.5px;" id="story0-6">Imagine these politicians take many more votes, and we mark how often they the pairs of them vote together. Starting wit the Democrat on the left  and the Republicans on the right, everytime they vote they take steps closer together or further apart on this line.</p>
+              <p class="trigger scrollStoryItem body" data-step="7" style="height: 344.5px;" id="story0-7">We might end up with something like this, with the Democrat taking a value of around -0.38, while the two Republicans have values of 0.15 and 0.42. Notice that the Republican that sometimes votes with the Democrat is pulled closer to the center as a result.</p>
+              <p class="trigger scrollStoryItem last" data-step="8" style="height: 344.5px;" id="story0-8">We can repeat this process for every legislator in a congressional session, noting who the Democrats and Republicans are, and measuring how simialr they are to one another relative to others in Congress. Note how some Democrats can have values above zero and Republicans can ahve values below zero!</p>
               <p class="trigger scrollStoryItem bottom" data-step="9" style="height: 0px;" id="story0-9"></p>
             </div>
             <div class="graphic__vis">
             </div>
           </div>
       </div>
-      <p class = 'para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perspiciatis optio nemo magnam nostrum eaque consequuntur eligendi rerum aut explicabo nulla, voluptatum odit maxime! Unde nihil optio nisi delectus tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate nisi saepe voluptates fuga culpa hic totam quae, corporis officia ut numquam expedita asperiores, deleniti, perferendis animi delectus nobis blanditiis fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus rerum aliquam, architecto assumenda sunt alias tenetur tempora voluptates maxime, distinctio iusto perferendis, autem. Impedit temporibus vitae, numquam nisi eveniet repudiandae.</p>
+      <p class = 'para'>Now that you've been introduced to DW-NOMINATE scores, lets take a look at what they show us. The chart below shows the NOMINATE Score for every member of Congress from 1950 until today, with each small circle represents an individual member of congress. It also shows the average NOMINATE score for both the Republicans and the Democrats. Explore the plot to learn about the timeline of the ideological divide between the two parties.</p>
     </div>
 
 
@@ -106,18 +106,38 @@
           </div>
         </div>
         <div id = "info">
-          <div class="dropdown"> Filter by State:
-            <select id="selectButton"></select>
-            <hr>
+          <div class="dropdown"> Filter by State:<br>
+            <select id="stateFilter"></select>
+            <!-- <hr> -->
           </div>
-          <p id = "year">Click on the pulsing circles to get historical context.</p>
+          <div class="dropdown"> Compare With:<br>
+            <select id="comparison">
+              <option value="None">None</option>
+            </select>
+            <!-- <hr> -->
+          </div>
+          <div>
+            <br>
+            <input type="checkbox" id="showPoints" name="showPoints" checked="True">
+            <label for="showPoints"> Show Points</label><br>
+            <br>
+            Show Party:<br>
+            <input type="checkbox" id="showDems" name="showDems" checked="True">
+            <label for="showDems"> Democrats</label>
+            <input type="checkbox" id="showGOP" name="showGOP" checked="True">
+            <label for="showGOP"> Republicans</label><br>
+            <br>
+            <input type="checkbox" id="vehicle1" name="vehicle1" checked="True">
+            <label for="vehicle1"> Show Spread Lines</label><br>
+          </div>
+<!--           <p id = "year">Click on the pulsing circles to get historical context.</p>
           <p id = "president"></p>
           <p id = "history"></p>
-          <p id = "change"></p>
+          <p id = "change"></p> -->
         </div>
       </div>
       <h4>The Evolution of Polarization</h4>
-      <p class = 'para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perspiciatis optio nemo magnam nostrum eaque consequuntur eligendi rerum aut explicabo nulla, voluptatum odit maxime! Unde nihil optio nisi delectus tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate nisi saepe voluptates fuga culpa hic totam quae, corporis officia ut numquam expedita asperiores, deleniti, perferendis animi delectus nobis blanditiis fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus rerum aliquam, architecto assumenda sunt alias tenetur tempora voluptates maxime, distinctio iusto perferendis, autem. Impedit temporibus vitae, numquam nisi eveniet repudiandae.</p>
+      <p class = 'para'> During the early part of the post war period, after the 1940's, Republicans and Demcrats had much more ideological overlap. This can be seen by the number of circles.</p>
   </div>
 
 
