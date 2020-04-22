@@ -25,15 +25,6 @@ from example_data import nominateExample, fakeDistirctDist
 from flask import Flask, render_template
 
 
-#// DATA DEPENDENCIES //#
-
-# nominate example date for main page
-nominate_example = nominateExample()
-
-# fake district distribution data
-district_dist = fakeDistirctDist()
-
-
 
 #// FLASK APP //#
 
@@ -64,13 +55,18 @@ def topicPath():
 
 @app.route('/getNom')
 def getNom():
+
+  # nominate example date for main page
+  nominate_example = nominateExample()
+
   return nominate_example
 
 @app.route('/getStates')
 def getStates():
   states = pd.read_csv("https://worldpopulationreview.com/static/states/abbr-name.csv", header = None)
   states.columns = ['abbrev','state']
-  states = pd.concat([pd.DataFrame({"abbrev":["All"],"state":["All"]}),states], axis = 0).to_json(orient="records")
+  states = pd.concat([pd.DataFrame({"abbrev":["All"],"state":["All"]}),states], axis = 0)
+  states = states.to_json(orient="records")
   return states
 
 @app.route('/getOv/<state>')
@@ -80,12 +76,22 @@ def getOv(state):
     state = None
 
   ovData = fetch_overview_data(state)
+
   return ovData
 
-@app.route('/getData')
-def getData():
+@app.route('/getFData')
+def getFData():
+
+  # fake district distribution data
+  district_dist = fakeDistirctDist()
+
   return district_dist
 
+
+@app.route('/getPopDensity')
+def getPopDensity():
+  pop_density = pd.read_csv("./static/data/congq_nom_mu.csv").to_json(orient = 'records')
+  return pop_density
 
 #===============* Saved Code *===============#
 
