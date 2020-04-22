@@ -58,39 +58,105 @@
 
 
    <div class="container intro">
-    <h2>Introduction</h2>
-    <p style = "padding-bottom: 5rem;">This project aims to present the findings of research in political polarization in the United State Congress. The project will provide an easy source for those with a casual interest to consume the data along with some key research findings. Additionally, researchers looking to explore patterns in polarization may find utility in this tool to possibly identify patterns that may help them generate new research hypotheses in the areas of history and political science.
+
+    <h2>Congress Ideological Scores Over Time</h2>
+    <p style = "padding-bottom: 5rem;">While the political contention between Republican and Democratic parties has grown to be more evident in recent years, we make an effort to analyze the factors that consititue divisive ideologies. 
     </p>
-    <h2>Data</h2>
+
+
+	<p style = "padding-bottom: 5rem;">In this first visualization we illustrate the average ideological scores in the House of Representatives throuhgout time...</p>
+
+
+	<hr class="featurette-divider">
+
+	<!-- Overall Ideological Scores in Congress //// Silvia -->
+
+		<div class='container' id='example'>
+
+			<div class='tableauPlaceholder' id='viz1587587535618' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ov&#47;OverallIdeologyScoresinRecentAdministrations&#47;Avg_IdeologyScoreperAdmin&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OverallIdeologyScoresinRecentAdministrations&#47;Avg_IdeologyScoreperAdmin' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ov&#47;OverallIdeologyScoresinRecentAdministrations&#47;Avg_IdeologyScoreperAdmin&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+			</div><script type='text/javascript'>                    var divElement = document.getElementById('viz1587587535618');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		</div>
+
+	<hr class="featurette-divider">
+
+
+    <h2>House Majority in Congress</h2>
     <p>
-    Our data are every congressional roll call vote in American history on a map of the United States and on a liberal-conservative ideological map including information about the ideological positions of voting Senators and Representatives.  The bipolar ideological scoring system was originally developed by Keith T. Poole and Howard Rosenthal at Carnegie-Mellon University. Metadata on each congressperson is also provided including party affiliation, district, state, as well as other attributes that may be of interest to the project. The data are publicly available and free to download <a href="https://voteview.com" id='voteview'>here</a>.
+    An important factor to consider when analyzing the overall ideology in Congress is the House majority at the time. In the visualization below, we have created a treehouse that depicts the majority of house in a specific congress, with color denoting the party in majority. The rectangle size also depicts the house majority.
+    </p>
+
+
+  <hr class="featurette-divider">
+
+  <!-- House majority in congress //// Silvia-->
+
+  <div class='container' id='majority'>
+
+  	<div class='tableauPlaceholder' id='viz1587588579736' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sh&#47;Sheets_Done&#47;HouseMajority&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Sheets_Done&#47;HouseMajority' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sh&#47;Sheets_Done&#47;HouseMajority&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+  	</div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587588579736');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+  </div>
+
+	<hr class="featurette-divider">
+
+
+
+	<h2>Congress member Ideology Score per Administration</h2>
+    <p> To give our users some further analysis as to what are ultimately the influencers that drive the ideological scores per party to extremes, we illustrate ideological scores per member. 
+    </p>
+
+    <hr class="featurette-divider">
+
+    <!--Ideology score per member //// Silvia -->
+
+    <div class='container' id='score per member'>
+
+    	<div class='tableauPlaceholder' id='viz1587589042925' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;CongressmemberIdeologyScoreperAdministration&#47;CongressmemberScoreperAdmin&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CongressmemberIdeologyScoreperAdministration&#47;CongressmemberScoreperAdmin' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;CongressmemberIdeologyScoreperAdministration&#47;CongressmemberScoreperAdmin&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+    	</div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587589042925');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+
+	
+	<h2>Congress member Ideology per Topic</h2>
+    <p> Here we have gathered topics that can draw contention between parties. Below you can iterate through topics to understand potential divisiveness in each party, per topic, according to the views of congress members. 
+    </p>
+
+    <hr class="featurette-divider">
+
+
+    <!--Ideology Score per Topic in Members //// Silvia -->
+
+    <div class='container' id='topic per member'>
+    	<div class='tableauPlaceholder' id='viz1587589578544' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Id&#47;IdeologyScoreperTopicamongstselectedCongressmembers&#47;IdlgyScoreperTopicamongstallcongressmembers&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IdeologyScoreperTopicamongstselectedCongressmembers&#47;IdlgyScoreperTopicamongstallcongressmembers' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Id&#47;IdeologyScoreperTopicamongstselectedCongressmembers&#47;IdlgyScoreperTopicamongstallcongressmembers&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+    	</div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587589578544');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+    <h2>The Topic Dashboard</h2>
+    <p>
+    	We have covered several factors that may influence the ideology of congress members. To give our users a broad view as to how these shift according to a selected administration or year, we combine previous visualizations for a description of this phenomena.
+    </p>
+    <p>
+    	Available topics are in the drop down Menu. To navigate and see the trends in administrations, select either the name of the president's administration or year.
     </p>
   </div>
 
   <hr class="featurette-divider">
 
-
-
-  <!-- Urban-Rural Divide //// Reese -->
-  <div class ='container' id='topic'>
-    <div class="library">
-        <h2 class="library__hed"><a target="_blank">Topic Drift</a></h2>
-        <p class = 'explainer'>Placeholder for text</p>
-        <div class="library__graphic graphic scrollStory scrollStoryActiveItem-story0-0">
-          <div class="graphic__prose">
-            <p class="trigger scrollStoryItem inviewport" data-step="0" style="height: 344.5px;" id="story0-0">Step 1 in the graphic. It triggers in the middle of the viewport. For this graphic, it is the same as the initial state so the reader doesn’t miss anything.</p>
-            <p class="trigger scrollStoryItem" data-step="1" style="height: 344.5px;" id="story0-1">Step 2 the graphic should be locking into a fixed position now.</p>
-            <p class="trigger scrollStoryItem" data-step="2" style="height: 344.5px;" id="story0-2">Step 3 the squares should move apart and change color.</p>
-            <p class="trigger scrollStoryItem" data-step="3" style="height: 344.5px;" id="story0-3">Step 3 the squares dissapear concluding the this part of the scrolly. The graphic should now go back to its original in-flow position, snapping back into place.</p>
-          </div>
-          <div class="graphic__vis">
-          </div>
-        </div>
-    </div>
+  <!--Topic Dashboard //// Silvia -->
+  <div class = 'container' id='topic dashboard'>
+  	<div class='tableauPlaceholder' id='viz1587590063480' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Id&#47;IdeologyScoreAnalysisperAdministrationOverTime&#47;Alltogethernow&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IdeologyScoreAnalysisperAdministrationOverTime&#47;Alltogethernow' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Id&#47;IdeologyScoreAnalysisperAdministrationOverTime&#47;Alltogethernow&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+  	</div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587590063480');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1227px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
   </div>
 
-
   <hr class="featurette-divider">
+
+  <!-- End of Silvia's Code -->
+
 
   <!-- LIBRAIRIES -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
