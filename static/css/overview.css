@@ -6,6 +6,11 @@
 /*  padding-top: 0.5rem;*/
 }
 
+.tsChartSVG {
+  display: block;
+  margin:auto;
+}
+
 .overviewSVG {
   display: block;
   margin:auto;
