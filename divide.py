@@ -90,7 +90,7 @@ def getFData():
 
 @app.route('/getPopDensity')
 def getPopDensity():
-  pop_density = pd.read_csv("./static/data/congq_nom_mu.csv").to_json(orient = 'records')
+  pop_density = pd.read_csv("./data/congq_nom_mu.csv").to_json(orient = 'records')
   return pop_density
 
 #===============* Saved Code *===============#
