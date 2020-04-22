@@ -223,8 +223,8 @@ d3.json("/getNom",
         var t = d3.transition()
           .duration(800)
           .ease(d3.easeQuadInOut)
-
-        var axis = graphicVisEl.selectAll('.x.axis');
+        var item = graphicVisEl.selectAll('.item');
+        
 
         item.select('text')
           .transition(t)
@@ -238,7 +238,7 @@ d3.json("/getNom",
         })
           .attr('cy',scaleY(1));
 
-        var item = graphicVisEl.selectAll('.item');
+        var axis = graphicVisEl.selectAll('.x.axis');
 
         axis.transition(t)
             .style('stroke-opacity', 0);

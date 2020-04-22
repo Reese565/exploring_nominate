@@ -1,7 +1,7 @@
 
 
 
-var margin = {top: 20, right: 10, bottom: 60, left: 70, xlab: 20},
+var margin = {top: 40, right: 5, bottom: 60, left: 70, xlab: 20},
     width = 650,
     height = 400,
     xValue = null,
@@ -36,7 +36,6 @@ function buildChart(selector){
     if (xDomain == null){
       xDomain = d3.extent(data, function(d) { return xValue(d); })
     }
-    console.log(xDomain)
 
     if (yDomain == null){
       yDomain = d3.extent(data, function(d) { return yValue(d); })

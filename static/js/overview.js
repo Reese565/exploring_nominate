@@ -90,6 +90,28 @@ d3.json("/getOv/" + allStates,
             .style('opcaity',1)
             .on('click', clickHistory);
 
+    d3.select('.xLab')
+        .append('text')
+        .attr('x',margin.left + width/4 + margin.right*2 + 15)
+        .attr('y',height/2 + 155)
+        .style('opacity',0.65)
+        .text('Year');
+
+      d3.select('.yLab')
+        .append('text')
+        .attr("transform", "rotate(-90)")
+        .attr('x', -(width)/4 - margin.top*2 - 15)
+        .attr('y',15)
+        .style('opacity',0.65)
+        .text('<- Liberal | Conservative ->');
+
+      d3.select('.chartTitle')
+        .append('text')
+        .attr('x', width/4)
+        .attr('y',10)
+        .text('Party NOMINATE Scores (1950-2019)')
+        .style('opacity',0.5);
+
       
 
 
@@ -97,17 +119,18 @@ d3.json("/getOv/" + allStates,
       d3.json("/getOv/" + state,
         function (err, data) {
           if (err) throw err;
+          // add Democratic points
+          var points = gGeoms.selectAll('.point')
+                .data(data);
 
-          var nested_data = d3.nest()
-                    .key(function(d){return d.party_code})
-                    .entries(data);
 
-          gTop.selectAll('.points')
-                .enter()
-                .data(data)
-                .enter()
+          points.enter()
                 .append('circle')
-                .attr("class","point")
+                .merge(points)
+                .attr("class",function(d){
+                  if (d.party_code == '100') return "point demGeo"
+                    else return "point gopGeo"})
+                .attr('opacity',1)
                 .attr('r', 1)
                 .attr('cx', function(d){ 
                   if (Math.random() > .5) return xScale(d.year + Math.random()/2)
@@ -118,17 +141,29 @@ d3.json("/getOv/" + allStates,
                   if (d.party_code == '200') return '#CF5656'
                     else return '#5B70A3'});
 
+          points.exit()
+                .transition()
+                .duration(500)
+                .attr('opacity',0)
+                .remove()
+
+          var nested_data = d3.nest()
+                    .key(function(d){return d.party_code})
+                    .entries(data);
+
           var line = d3.line().x(function(d){return xScale(xValue(d))}).y(function(d){return yScale(yValue(d))});
 
-          gGeoms.data(nested_data)
-                .enter()
+          var lines = gGeoms.selectAll(".line")
+                  .data(nested_data);
+
+          lines.enter()
                 .append("path")
-                .attr("class", "line")
-                .attr("d", function(d){ return line(d.values)})
+                .merge(lines)
+                .attr("class", function(d){ return "line"})
+                .attr("d", function(d) { return line(d.values)})
                 .style('stroke', function(d){
-                  if(d.key == '200') return '#CF5656'
-                    else return '#5B70A3'
-                });
+                  if (d.key == '100') return '#5B70A3'
+                    else return '#CF5656'});
       })
     }
 
@@ -165,12 +200,40 @@ d3.json("/getOv/" + allStates,
 
     update(allStates)
 
-    d3.select("#selectButton")
+    d3.select("#stateFilter")
       .on("change", function() {
         var state = d3.select(this).property("value")
         console.log("Selected", state)
 
         update(state)
+      })
+
+    d3.select("#showDems")
+      .on("change", function(){
+        var state = d3.select(this).property("checked")
+        console.log(state)
+        if (state == true){
+          d3.selectAll(".demGeo")
+        .attr("opacity", 1)
+        }
+        else {
+          d3.selectAll(".demGeo")
+        .attr("opacity", 0)
+        }
+      })
+
+    d3.select("#showGOP")
+      .on("change", function(){
+        var state = d3.select(this).property("checked")
+        console.log(state)
+        if (state == true){
+          d3.selectAll(".gopGeo")
+        .attr("opacity", 1)
+        }
+        else {
+          d3.selectAll(".gopGeo")
+        .attr("opacity", 0)
+        }
       })
 
 })
