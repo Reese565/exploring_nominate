@@ -95,7 +95,7 @@
             </div>
           </div>
       </div>
-      <p class = 'para'>Now that you've been introduced to DW-NOMINATE scores, lets take a look at what they show us. The chart below shows the NOMINATE Score for every member of Congress from 1950 until today, with each small circle represents an individual member of congress. It also shows the average NOMINATE score for both the Republicans and the Democrats. Explore the plot to learn about the timeline of the ideological divide between the two parties.</p>
+      <p class = 'para'>Now that you've been introduced to DW-NOMINATE scores, lets take a look at what they show us. The chart below shows the NOMINATE Score for every member of Congress from 1950 until today, with each small circle represents an individual member of congress. It also shows the average NOMINATE score for both the Republicans and the Democrats. Explore the plot to learn about the timeline of the ideological divide between the two parties. Compare States to the national figures, or to other states to see which began to become more polarized and when.</p>
     </div>
 
 
@@ -107,28 +107,31 @@
         </div>
         <div id = "info">
           <div class="dropdown"> Filter by State:<br>
-            <select id="stateFilter"></select>
-            <!-- <hr> -->
-          </div>
-          <div class="dropdown"> Compare With:<br>
-            <select id="comparison">
-              <option value="None">None</option>
-            </select>
-            <!-- <hr> -->
+            <select id="stateFilterPrime"></select>
           </div>
           <div>
-            <br>
-            <input type="checkbox" id="showPoints" name="showPoints" checked="True">
-            <label for="showPoints"> Show Points</label><br>
-            <br>
+            <input type="checkbox" id="showPointsPrime" name="showPointsPrime" checked="True">
+            <label for="showPointsPrime"> Show Points</label><br>
             Show Party:<br>
-            <input type="checkbox" id="showDems" name="showDems" checked="True">
-            <label for="showDems"> Democrats</label>
-            <input type="checkbox" id="showGOP" name="showGOP" checked="True">
-            <label for="showGOP"> Republicans</label><br>
-            <br>
-            <input type="checkbox" id="vehicle1" name="vehicle1" checked="True">
-            <label for="vehicle1"> Show Spread Lines</label><br>
+            <input type="checkbox" id="showDemsPrime" name="showDemsPrime" checked="True">
+            <label for="showDemsPrime"> Democrats</label>
+            <input type="checkbox" id="showGOPPrime" name="showGOPPrime" checked="True">
+            <label for="showGOPPrime"> Republicans</label>
+          </div>
+          <hr>
+          <div class="dropdown"> Compare With:<br>
+            <select id="stateFilterComp">
+              <option value="None">None</option>
+            </select>
+          </div>
+          <div>
+            <input type="checkbox" id="showPointsComp" name="showPointsComp" checked="True">
+            <label for="showPointsComp"> Show Points</label><br>
+            Show Party:<br>
+            <input type="checkbox" id="showDemsComp" name="showDemsComp" checked="True">
+            <label for="showDemsComp"> Democrats</label>
+            <input type="checkbox" id="showGOPComp" name="showGOPComp" checked="True">
+            <label for="showGOPComp"> Republicans</label>
           </div>
 <!--           <p id = "year">Click on the pulsing circles to get historical context.</p>
           <p id = "president"></p>
@@ -137,7 +140,11 @@
         </div>
       </div>
       <h4>The Evolution of Polarization</h4>
-      <p class = 'para'> During the early part of the post war period, after the 1940's, Republicans and Demcrats had much more ideological overlap. This can be seen by the number of circles.</p>
+      <p class = 'para'> During the early part of the post war period, after the 1940's, Republicans and Demcrats had much more ideological overlap. This can be seen by the number of points, individual legislators, from both parties falling around and across the zero line where the ideological center is. By the mid 1990's this space representing the ideological center was completely abandoned by both parties.</p>
+  </div>
+
+  <div>
+    <p class = 'out'> Explore more topics related to the political divide by clicking below</p>
   </div>
 
 
