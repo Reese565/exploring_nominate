@@ -16,7 +16,7 @@ import numpy as np
 DATA_PATH = './static/data/'
 VOTEVIEW_URL = "https://voteview.com/static/data/out/members/HSall_members.csv"
 PARTY_LIST = [100,200] # 100 = Democrat, 200 = Republican
-COLS = ['year','congress','party_code','chamber','icpsr','nominate_dim1']
+COLS = ['year','party_code','chamber','nominate_dim1']
 CHAMBERS = ['House','Senate']
 YEAR = 1950
     
@@ -106,7 +106,22 @@ def add_party_mean(vv):
     return vvm
 
 
-def fetch_overview_data(state = None,p = 0.25):
+def clean_vv(vv):
+    """
+    Cleans VoteView Data
+    """
+
+    vv = add_year(vv)
+    vv = filter_party(vv,PARTY_LIST)
+    vv = filter_chamber(vv,CHAMBERS)
+    vv = drop_missing(vv,'nominate_dim1')
+    vv = filter_year(vv, YEAR)
+    
+    return vv
+    
+    
+    
+def overview_data(vv, state = None,p = 0.25):
     """
     Fetches, filters, and cleans Voteview 
     NOMINATE data and returns as JSON string
@@ -114,18 +129,12 @@ def fetch_overview_data(state = None,p = 0.25):
     Args
      - p: sample proportion
     """
-
+    
     if state != None:
         p = 1.0
     
-    vv = voteviewData()
-    vv = add_year(vv)
-    vv = filter_party(vv,PARTY_LIST)
-    vv = filter_chamber(vv,CHAMBERS)
     vv = filter_state(vv, state)
     vv = filter_cols(vv,COLS)
-    vv = filter_year(vv, YEAR)
-    vv = drop_missing(vv,'nominate_dim1')
     vv = add_party_mean(vv)
     
     
@@ -146,9 +155,32 @@ def fetch_overview_data(state = None,p = 0.25):
 
 
 
+def fetch_overview_data(p = 0.25):
+    """
+    Fetches, filters, and cleans Voteview 
+    NOMINATE data and returns as JSON string
+    
+    Args
+     - p: sample proportion
+    """
+    
+    url = "https://worldpopulationreview.com/static/states/name-abbr.json"
+    s = requests.get(url).content
 
+    # create StringIO (string input/output) to act as "file" for pandas
+    sio = io.StringIO(s.decode('utf-8'))
+    states_json = json.loads(s)
+    states_json.pop('District Of Columbia')
+    
+    vv = voteviewData()
+    vv = clean_vv(vv)
 
+    ov_data = {'All': json.loads(overview_data(vv))}
 
+    for state in states_json:
+        ov_data[state] = json.loads(overview_data(vv,states_json[state]))
+    
+    return json.dumps(ov_data)
 
 
 

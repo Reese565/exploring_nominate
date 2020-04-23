@@ -65,17 +65,18 @@ def getNom():
 def getStates():
   states = pd.read_csv("https://worldpopulationreview.com/static/states/abbr-name.csv", header = None)
   states.columns = ['abbrev','state']
+  states = states[states['abbrev'] != 'DC']
   states = pd.concat([pd.DataFrame({"abbrev":["All"],"state":["All"]}),states], axis = 0)
   states = states.to_json(orient="records")
   return states
 
-@app.route('/getOv/<state>')
-def getOv(state):
+@app.route('/getOv')
+def getOv():
   
-  if state == "All":
-    state = None
+  # if state == "All":
+  #   state = None
 
-  ovData = fetch_overview_data(state)
+  ovData = fetch_overview_data()
 
   return ovData
 
