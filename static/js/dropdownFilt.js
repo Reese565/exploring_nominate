@@ -20,42 +20,27 @@ function filterFunction() {
   }
 }
 
-
-// function showDemsFn() {
-//     var status = document.getElementById("showDems").checked;
-//     if (status == "True") {
-//       d3.selectAll(".demGeo")
-//         .attr("opacity", 1)
-//     }
-//     else {
-//       d3.selectAll(".demGeo")
-//         .attr("opacity", 0)
-//     }
-// }
-
-
   d3.json("/getStates", 
     function (err, data) {
       if (err) throw err;
 
-      // console.log(data)
 
-      d3.select("#stateFilter")
+      d3.select("#stateFilterPrime")
         .selectAll("filts")
         .data(data)
         .enter()
         .append('option')
         .text(function(d){ return d.state})
-        .attr("value", function(d) { return d.abbrev})
+        .attr("value", function(d) { return d.state})
 
 
-      d3.select("#comparison")
+      d3.select("#stateFilterComp")
         .selectAll("filts")
         .data(data)
         .enter()
         .append('option')
         .text(function(d){ return d.state})
-        .attr("value", function(d) { return d.abbrev})
+        .attr("value", function(d) { return d.state})
 
     })
 

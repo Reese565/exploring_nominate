@@ -1,8 +1,10 @@
 
 
 
-var width = 900,
-    height = 450;
+var w = 650,
+    h = 450
+    m = {top: 40, right: 50, bottom: 60, left: 70, xlab: 20};
+
 
 d3.json("/getPopDensity",
   function (err, data) {
@@ -14,8 +16,9 @@ d3.json("/getPopDensity",
     var myChart = buildChart("#urTSChart")
 
     myChart.data(data)
-           .width(width)
-           .height(height)
+           .width(w)
+           .height(h)
+           .margin(m)
            .x(function(d) { return xValue(d) })
            .y(function(d) { return yValue(d) })
            .build()
@@ -38,29 +41,71 @@ d3.json("/getPopDensity",
             .style('stroke','black')
             .style('opacity',0.6);
 
+
+    d3.select('.xLab')
+        .append('text')
+        .attr('x',margin.left + width/4 + margin.right*2)
+        .attr('y',height/2 + 210)
+        .style('opacity',0.65)
+        .text('Year');
+
+      d3.select('.yLab')
+        .append('text')
+        .attr("transform", "rotate(-90)")
+        .attr('x', -(width)/4 - margin.top*2 - 50)
+        .attr('y',15)
+        .style('opacity',0.65)
+        .text('<- Liberal | Conservative ->');
+
+      d3.select('.chartTitle')
+        .append('text')
+        .attr('x', width/4)
+        .attr('y',10)
+        .text('Congressional District NOMINATE Scores (1900-2012)')
+        .style('opacity',0.5);
+
     var nested_data = d3.nest()
                         .key(function(d){return d.group})
                         .entries(data);
-    
-    console.log(nested_data)
 
+    var labels = [['Q1',0.25], ['Q2',0.3], ['Q3',0.05], ['Q4',-0.3]]
+
+    gTop.selectAll('.labels')
+        .data(labels)
+        .enter()
+        .append('text')
+        .text(function(d){ return d[0]})
+        .attr('x', function(d){return xScale(2012)})
+        .attr('y', function(d){
+          return yScale(d[1])})
+        .attr('color', function(d){
+          if (d[0] == 'Q2') return '#A63742'
+            else if (d[0] == 'Q3') return '#BB0819'
+            else if (d[0] == 'Q4') return '#646DA2'
+            else return '#915A5F'
+        });
 
     function update(){
 
       var line = d3.line().x(function(d){return xScale(xValue(d))}).y(function(d){return yScale(yValue(d))});
 
-      gGeoms.data(nested_data)
-            .enter()
-            .append("path")
-            .attr("class", "line")
-            .attr("d", function(d){ return line(d.values)})
-            .style('stroke', function(d){
-                if (d.key == '1') return 'red'
-                else if (d.key == '2') return 'orange'
-                else if (d.key == '3') return 'yellow'
-                else return 'blue'});
+      var lines = gGeoms.selectAll(".line")
+              .data(nested_data);
 
+      lines.enter()
+           .append("path")
+           .attr("class", "line")
+           .attr("d", function(d){ return line(d.values)})
+           .style('stroke', function(d){
+               if (d.key == '1') return '#A63742'
+               else if (d.key == '2') return '#BB0819'
+                else if (d.key == '3') return '#646DA2'
+                else return '#915A5F'});
 
+// 965E5D
+// C20500
+// B71F1B
+// D80600
       // var q1Value = function(d){ return d.nom_quant_1};
       // var q2Value = function(d){ return d.nom_quant_2};
       // var q3Value = function(d){ return d.nom_quant_3};

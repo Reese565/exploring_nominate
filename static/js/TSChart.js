@@ -6,25 +6,25 @@ var margin = {top: 40, right: 5, bottom: 60, left: 70, xlab: 20},
     height = 400,
     xValue = null,
     yValue = null,
-    xScale = d3.scaleLinear().range([margin.left, width - margin.right]),
-    yScale = d3.scaleLinear().range([height - margin.bottom,margin.top]),
+    xScale = d3.scaleLinear(),
+    yScale = d3.scaleLinear(),
     xDomain = null,
     yDomain = null,
     xAxis = null,
     yAxis = null,
     chart_data = null,
-    sbg = null,
+    svg = null,
     gTop = null;
 
 
 
 function buildChart(selector){
-  svg = d3.select(selector).append('svg');
-  gTop = svg.append('g').attr('class','gTop');
 
-  svg.attr('width',width)
-     .attr('height',height)
-     .attr('class','tsChartSVG');
+  svg = d3.select(selector)
+          .append('svg')
+          .attr('class','tsChartSVG');
+
+  gTop = svg.append('g').attr('class','gTop');
 
 
   function setParams(){
@@ -32,6 +32,9 @@ function buildChart(selector){
   }
 
   function chart(data){
+
+    svg.attr('width',width)
+       .attr('height',height)
 
     if (xDomain == null){
       xDomain = d3.extent(data, function(d) { return xValue(d); })
@@ -48,8 +51,10 @@ function buildChart(selector){
     gTop.append("g").attr("class", "xLab");
     gTop.append("g").attr("class", "yLab");
 
-    xScale.domain(xDomain)
-    yScale.domain(yDomain)
+    xScale.range([margin.left, width - margin.right])
+          .domain(xDomain)
+    yScale.range([height - margin.bottom,margin.top])
+          .domain(yDomain)
 
     yAxis = d3.axisLeft(yScale);
     xAxis = d3.axisBottom(xScale)
@@ -71,15 +76,23 @@ function buildChart(selector){
 
   }
 
-  setParams.width = function(_) {
-    if (!arguments.length) return width;
-    width = _;
-    return setParams;
+  setParams.width = function(w) {
+       width = w;
+       return setParams;
   };
 
-  setParams.height = function(_) {
-    if (!arguments.length) return height;
-    height = _;
+  setParams.height = function(h) {
+    if (!arguments.length) {
+      height = height
+    return setParams;}
+     else {
+      height = h;
+      return setParams;}
+  };
+
+  setParams.margin = function(m) {
+    console.log(m)
+    margin = m;
     return setParams;
   };
 
