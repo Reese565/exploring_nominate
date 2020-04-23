@@ -14,10 +14,15 @@ body {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-h2, a {
+a {
   color: black;
   text-decoration: underline;
 }
+
+h2{
+  color: black;
+}
+
 
 .logo {
   padding-top: 150px;
